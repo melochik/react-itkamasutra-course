@@ -1,0 +1,14 @@
+.post {
+    padding: 10px 0 10px 10px;
+    color: rgb(5, 27, 45);
+}
+
+.post img {
+    padding: 0 10px 0 10px;
+    height: 40px;
+}
+
+.emote {
+    padding: 0 0 10px 10px;
+    color: rgb(11, 54, 92);
+}

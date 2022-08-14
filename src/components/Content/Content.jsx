@@ -1,4 +1,5 @@
 import React from "react"
+import MyPosts from "./MyPosts/MyPosts"
 import cont from "./Content.module.css"
 const Content = () => {
     return (
@@ -8,10 +9,7 @@ const Content = () => {
                 <div className={cont.item}>name</div>
                 <div className={cont.item}>second name</div>
                 <div className={cont.item}>job</div>
-                <div>
-                    <div className={cont.post}>post 1</div>
-                    <div className={cont.post}>post 2</div>
-                </div>
+                <MyPosts />
             </div>
         </div>
     )
