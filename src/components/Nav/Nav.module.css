@@ -10,6 +10,10 @@
     text-decoration: none;
 }
 
-.item.active {
+.item:active {
     color: gold;
+}
+
+.item:hover {
+    color: rgba(0, 255, 255, 0.567);
 }

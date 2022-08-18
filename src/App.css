@@ -8,3 +8,8 @@
     grid-template-rows: 70px 1fr;
     grid-template-columns: 2fr 10fr;
 }
+
+.appContent {
+    grid-area: c;
+    background-color: rgb(218, 181, 255);
+}
