@@ -6,9 +6,9 @@ const Content = () => {
         <div className={cont.content}>
             <div className={cont.box}></div>
             <div>
-                <div className={cont.item}>name</div>
-                <div className={cont.item}>second name</div>
-                <div className={cont.item}>job</div>
+                <div className={cont.item}>name - Ivan</div>
+                <div className={cont.item}>second name - Kuchyn</div>
+                <div className={cont.item}>job - Student</div>
                 <MyPosts />
             </div>
         </div>
