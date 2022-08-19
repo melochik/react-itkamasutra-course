@@ -4,16 +4,16 @@
     background-color: darksalmon;
 }
 
-.item {
+.item a {
     padding: 10px;
     color: rgb(188, 255, 5);
     text-decoration: none;
 }
 
-.item:active {
+.item a.active {
     color: gold;
 }
 
-.item:hover {
+a:hover {
     color: rgba(0, 255, 255, 0.567);
 }
