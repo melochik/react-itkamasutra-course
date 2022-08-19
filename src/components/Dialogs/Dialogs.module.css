@@ -1,0 +1,32 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.diaolgsList {
+    padding: 20px;
+}
+
+.currentDialog {
+    padding: 20px;
+    background-color: rgb(210, 171, 255);
+}
+
+.item {
+    font-weight: 700;
+}
+
+.item a:hover {
+    color: rgba(0, 255, 255, 0.567);
+}
+
+.item a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+.item a.active {
+    color: gold;
+}
+
+.message {}

@@ -2,6 +2,17 @@
     background-color: bisque;
 }
 
+.anotation {
+    display: flex;
+    align-items: center;
+}
+
+.anotation button,
+.anotation textarea {
+    margin: 0 0 0 30px;
+    height: 30px;
+}
+
 .sent {
     color: rgb(32, 185, 172);
 }
