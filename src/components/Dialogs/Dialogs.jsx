@@ -16,20 +16,32 @@ const Message = (props) => {
     )
 }
 const Dialogs = () => {
+    //DATA
+    let dialogsData = [
+        { name: "Ivan", id: "1" },
+        { name: "Vova", id: "2" },
+        { name: "Egor", id: "3" },
+        { name: "Zaur", id: "4" },
+        { name: "Nata", id: "5" },
+        { name: "Liza", id: "6" },
+    ]
+
+    let messagesData = [
+        { content: "Hi" },
+        { content: "How are you" },
+        { content: "what about your project" },
+    ]
+    //Array - Components
+    let dialogsMap = dialogsData.map(user => <Dialog name={user.name} id={user.id} />)
+    let messagesMap = messagesData.map(el => <Message content={el.content} />)
+
     return (
         <div className={d.dialogs}>
             <div className={d.diaolgsList}>
-                <Dialog name="Ivan" id="1" />
-                <Dialog name="Vova" id="2" />
-                <Dialog name="Egor" id="3" />
-                <Dialog name="Zaur" id="4" />
-                <Dialog name="Nata" id="5" />
-                <Dialog name="Liza" id="6" />
+                {dialogsMap}
             </div>
             <div className={d.currentDialog}>
-                <Message content="hi" />
-                <Message content="How are you" />
-                <Message content="what about your project" />
+                {messagesMap}
             </div>
         </div >
     )
