@@ -7,8 +7,8 @@ const Dialogs = (props) => {
     //DATA
 
     //Array - Components
-    let dialogsMap = props.dialogsData.map(user => <Dialog name={user.name} id={user.id} />)
-    let messagesMap = props.messagesData.map(el => <Message content={el.content} />)
+    let dialogsMap = props.data.dialogsData.map(user => <Dialog name={user.name} id={user.id} />)
+    let messagesMap = props.data.messagesData.map(el => <Message content={el.content} />)
 
     return (
         <div className={d.dialogs}>
