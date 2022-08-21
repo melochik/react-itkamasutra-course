@@ -3,28 +3,27 @@ import Profile from './components/Content/Content';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
 import Dialogs from './components/Dialogs/Dialogs';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Music from './components/Music/Music';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 
-const App = () => {
+const App = (props) => {
   return (
-    <BrowserRouter>
-      <div className="appMain" >
-        <Header />
-        <Nav />
-        <div className='appContent'>
-          <Routes>
-            <Route path="/" element={<Profile />} />
-            <Route path="/dialogs/*" element={<Dialogs />} />
-            <Route path='/news' element={<News />} />
-            <Route path='/music' element={<Music />} />
-            <Route path='/settings' element={<Settings />} />
-          </Routes>
-        </div>
+    <div className="appMain" >
+      <Header />
+      <Nav />
+      <div className='appContent'>
+        <Routes>
+          <Route path="/" element={<Profile postsData={props.postsData} />} />
+          <Route path="/dialogs/*" element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData} />} />
+          <Route path='/news' element={<News />} />
+          <Route path='/music' element={<Music />} />
+          <Route path='/settings' element={<Settings />} />
+        </Routes>
       </div>
-    </BrowserRouter>);
+    </div>
+  );
 }
 
 
