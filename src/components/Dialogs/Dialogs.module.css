@@ -8,6 +8,7 @@
 }
 
 .currentDialog {
+    position: relative;
     padding: 20px;
     background-color: rgb(210, 171, 255);
 }
@@ -27,4 +28,11 @@
 
 .item a.active {
     color: gold;
+}
+
+.addPost {
+
+    display: flex;
+    position: absolute;
+    bottom: 0;
 }

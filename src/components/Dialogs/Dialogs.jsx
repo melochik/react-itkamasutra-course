@@ -10,6 +10,10 @@ const Dialogs = (props) => {
     let dialogsMap = props.data.dialogsData.map(user => <Dialog name={user.name} id={user.id} />)
     let messagesMap = props.data.messagesData.map(el => <Message content={el.content} />)
 
+    let text = React.createRef()
+    const func = () => {
+        props.addDialog(text.current.value)
+    }
     return (
         <div className={d.dialogs}>
             <div className={d.diaolgsList}>
@@ -17,6 +21,12 @@ const Dialogs = (props) => {
             </div>
             <div className={d.currentDialog}>
                 {messagesMap}
+
+                <div className={d.addPost}>
+                    <textarea ref={text} cols="30" rows="2"></textarea>
+                    <button onClick={func}>press to add</button>
+                </div>
+
             </div>
         </div >
     )
