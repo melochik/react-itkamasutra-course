@@ -4,12 +4,23 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
-import state, { addDialog, addPost } from './redux/state';
-import { Morerender } from './Render';
+import state, { mainRender, addDialog, addPost, updateTextArea } from './redux/state';
 
 
-Morerender(state, addPost, addDialog)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+export const Morerender = () => {
+    root.render(
+        <React.StrictMode>
+            <BrowserRouter>
+                <App data={state} addPost={addPost} addDialog={addDialog} updateTextArea={updateTextArea} />
+            </BrowserRouter>
+        </React.StrictMode>
+    );
+}
 
+Morerender()
+
+mainRender(Morerender)
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
