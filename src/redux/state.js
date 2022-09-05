@@ -23,35 +23,37 @@ let store = {
                 { id: 2, likeCount: 10000, message: "i'm gay", img: "https://pbs.twimg.com/profile_images/1366059096575598597/TnJuonYC_400x400.jpg" },
                 { id: 3, likeCount: 0, message: "i hate you!", img: "https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg" },
             ],
-            textArea: "hello"
+            textArea: ""
         }
     },
     getState() {
         return this._state
     },
-    addPost() {
-        let newPost = {
-            id: 4,
-            likeCount: 10,
-            message: this._state.profile.textArea,
-            img: "https://pro-cdn.pixelmator.com/community/avatar_empty@2x.png"
+    dispatch(action) {
+        if (action.type === "ADD-POST") {
+            let newPost = {
+                id: 4,
+                likeCount: 10,
+                message: this._state.profile.textArea,
+                img: "https://pro-cdn.pixelmator.com/community/avatar_empty@2x.png"
+            }
+            this._state.profile.postsData.push(newPost)
+            this.Morerender()
         }
-        this._state.profile.postsData.push(newPost)
-
-        this.Morerender()
-    },
-    addDialog(content) {
-        let newMessage = {
-            content: content
+        else if (action.type === "ADD-DIALOG") {
+            let newMessage = {
+                content: action.content
+            }
+            this._state.dialogs.messagesData.push(newMessage)
+            this.Morerender()
         }
-        this._state.dialogs.messagesData.push(newMessage)
-        this.Morerender()
+        else if (action.type === "UPDATE-TEXT-AREA") {
+            this._state.profile.textArea = action.text
+            this.Morerender()
+        } else {
+            alert("wechsele dispatch.type, bitte")
+        }
     },
-    updateTextArea(text) {
-        this._state.profile.textArea = text
-        this.Morerender()
-    },
-
     mainRender(func) {
         this.Morerender = func
     },

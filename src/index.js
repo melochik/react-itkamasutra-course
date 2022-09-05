@@ -8,11 +8,11 @@ import store from './redux/state';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-export const Morerender = () => {
+const Morerender = () => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App data={store.getState()} addPost={store.addPost.bind(store)} addDialog={store.addDialog.bind(store)} updateTextArea={store.updateTextArea.bind(store)} />
+                <App data={store.getState()} dispatch={store.dispatch.bind(store)} />
             </BrowserRouter>
         </React.StrictMode>
     );

@@ -11,7 +11,10 @@ const Dialogs = (props) => {
 
     let text = React.createRef()
     const func = () => {
-        props.addDialog(text.current.value)
+        props.dispatch({
+            type: "ADD-DIALOG",
+            content: text.current.value
+        })
         text.current.value = ""
     }
     return (
