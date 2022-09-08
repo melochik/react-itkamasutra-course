@@ -1,3 +1,9 @@
+export const addDialog = (a) => ({ type: "ADD-DIALOG", content: a })
+export const updateStateDialogMessage = (b) => ({ type: "UPDATE-DIALOG-AREA", message: b })
+export const addPost = () => ({ type: "ADD-POST" })
+export const updateTextArea = (a) => ({ type: "UPDATE-TEXT-AREA", text: a })
+
+
 let store = {
     _state: {
         dialogs: {
@@ -14,8 +20,9 @@ let store = {
                 { content: "Hi" },
                 { content: "How are you" },
                 { content: "what about your project" },
-            ]
+            ],
 
+            currentMessage: "hello it is state",
         },
         profile: {
             postsData: [
@@ -49,6 +56,9 @@ let store = {
         }
         else if (action.type === "UPDATE-TEXT-AREA") {
             this._state.profile.textArea = action.text
+            this.Morerender()
+        } else if (action.type === "UPDATE-DIALOG-AREA") {
+            this._state.dialogs.currentMessage = action.message
             this.Morerender()
         } else {
             alert("wechsele dispatch.type, bitte")

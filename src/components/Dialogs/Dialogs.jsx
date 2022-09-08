@@ -2,6 +2,7 @@ import React from "react";
 import d from "./Dialogs.module.css"
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
+import { addDialog, updateStateDialogMessage } from "../../redux/state";
 
 const Dialogs = (props) => {
 
@@ -10,13 +11,16 @@ const Dialogs = (props) => {
     let messagesMap = props.data.messagesData.map(el => <Message content={el.content} />)
 
     let text = React.createRef()
+
     const func = () => {
-        props.dispatch({
-            type: "ADD-DIALOG",
-            content: text.current.value
-        })
-        text.current.value = ""
+        props.dispatch(addDialog(text.current.value))
+        props.dispatch(updateStateDialogMessage(""))
     }
+
+    const change = () => {
+        props.dispatch(updateStateDialogMessage(text.current.value))
+    }
+
     return (
         <div className={d.dialogs}>
             <div className={d.diaolgsList}>
@@ -28,7 +32,7 @@ const Dialogs = (props) => {
                     {messagesMap}
                 </div>
                 <div className={d.addPost}>
-                    <textarea ref={text} cols="30" rows="2"></textarea>
+                    <textarea onChange={change} ref={text} value={props.data.currentMessage} cols="30" rows="2"></textarea>
                     <button onClick={func}>press to add</button>
                 </div>
 

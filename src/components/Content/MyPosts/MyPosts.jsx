@@ -1,6 +1,9 @@
 import React from "react"
 import Post from "./Post/Post"
 import myPosts from "./MyPosts.module.css"
+import { addPost, updateTextArea } from "../../../redux/state"
+
+
 const MyPosts = (props) => {
 
 
@@ -8,17 +11,17 @@ const MyPosts = (props) => {
     let text = React.createRef()
 
     const func = () => {
-        let newText = text.current.value
-        props.dispatch({ type: "UPDATE-TEXT-AREA", text: newText })
+        props.dispatch(updateTextArea(text.current.value))
     }
+
     return (
         <div className={myPosts.myposts}>
             <div className={myPosts.anotation}>
                 <h1 className={myPosts.sent}>My fav. posts</h1>
                 <textarea onChange={func} value={props.text} cols="30" rows="10" ref={text}></textarea>
                 <button onClick={() => {
-                    props.dispatch({ type: "ADD-POST" })
-                    props.dispatch({ type: "UPDATE-TEXT-AREA", text: "" })
+                    props.dispatch(addPost())
+                    props.dispatch(updateTextArea(""))
                 }}>Add Post</button>
             </div>
             {postsMap}
