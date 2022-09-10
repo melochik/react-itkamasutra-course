@@ -1,6 +1,6 @@
 import { dialogReducer } from "./dialogreducer"
 import { profileReducer } from "./profilereducer"
-import { sidebarReducer, sidebarREDUCER } from "./sidebarreducer"
+import { sidebarReducer } from "./sidebarreducer"
 
 let store = {
     _state: {
@@ -41,18 +41,11 @@ let store = {
         this._state.sidebar = sidebarReducer(this._state.sidebar, action)
         this.Morerender()
     },
-    mainRender(func) {
+    subscribe(func) {
         this.Morerender = func
     },
     Morerender() { }
 }
-
-
-
-
-
-
-
 
 
 
