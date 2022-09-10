@@ -1,8 +1,6 @@
-export const addDialog = (a) => ({ type: "ADD-DIALOG", content: a })
-export const updateStateDialogMessage = (b) => ({ type: "UPDATE-DIALOG-AREA", message: b })
-export const addPost = () => ({ type: "ADD-POST" })
-export const updateTextArea = (a) => ({ type: "UPDATE-TEXT-AREA", text: a })
-
+import { dialogReducer } from "./dialogreducer"
+import { profileReducer } from "./profilereducer"
+import { sidebarReducer, sidebarREDUCER } from "./sidebarreducer"
 
 let store = {
     _state: {
@@ -31,38 +29,17 @@ let store = {
                 { id: 3, likeCount: 0, message: "i hate you!", img: "https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg" },
             ],
             textArea: ""
-        }
+        },
+        sidebar: {}
     },
     getState() {
         return this._state
     },
     dispatch(action) {
-        if (action.type === "ADD-POST") {
-            let newPost = {
-                id: 4,
-                likeCount: 10,
-                message: this._state.profile.textArea,
-                img: "https://pro-cdn.pixelmator.com/community/avatar_empty@2x.png"
-            }
-            this._state.profile.postsData.push(newPost)
-            this.Morerender()
-        }
-        else if (action.type === "ADD-DIALOG") {
-            let newMessage = {
-                content: action.content
-            }
-            this._state.dialogs.messagesData.push(newMessage)
-            this.Morerender()
-        }
-        else if (action.type === "UPDATE-TEXT-AREA") {
-            this._state.profile.textArea = action.text
-            this.Morerender()
-        } else if (action.type === "UPDATE-DIALOG-AREA") {
-            this._state.dialogs.currentMessage = action.message
-            this.Morerender()
-        } else {
-            alert("wechsele dispatch.type, bitte")
-        }
+        this._state.profile = profileReducer(this._state.profile, action)
+        this._state.dialogs = dialogReducer(this._state.dialogs, action)
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action)
+        this.Morerender()
     },
     mainRender(func) {
         this.Morerender = func
