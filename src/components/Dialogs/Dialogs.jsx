@@ -2,24 +2,13 @@ import React from "react";
 import d from "./Dialogs.module.css"
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
-import { addDialog, updateStateDialogMessage } from "../../redux/dialogreducer";
 
 const Dialogs = (props) => {
 
     //Array - Components
-    let dialogsMap = props.data.dialogsData.map(user => <Dialog name={user.name} id={user.id} />)
-    let messagesMap = props.data.messagesData.map(el => <Message content={el.content} />)
+    let dialogsMap = props.dialogsData.map(user => <Dialog name={user.name} id={user.id} />)
+    let messagesMap = props.messagesData.map(el => <Message content={el.content} />)
 
-    let text = React.createRef()
-
-    const func = () => {
-        props.dispatch(addDialog(text.current.value))
-        props.dispatch(updateStateDialogMessage(""))
-    }
-
-    const change = () => {
-        props.dispatch(updateStateDialogMessage(text.current.value))
-    }
 
     return (
         <div className={d.dialogs}>
@@ -32,8 +21,8 @@ const Dialogs = (props) => {
                     {messagesMap}
                 </div>
                 <div className={d.addPost}>
-                    <textarea onChange={change} ref={text} value={props.data.currentMessage} cols="30" rows="2"></textarea>
-                    <button onClick={func}>press to add</button>
+                    <textarea onChange={props.change} value={props.text} cols="30" rows="2"></textarea>
+                    <button onClick={props.func}>press to add</button>
                 </div>
 
             </div>

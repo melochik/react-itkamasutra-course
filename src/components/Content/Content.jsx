@@ -1,11 +1,13 @@
 import React from "react"
-import MyPosts from "./MyPosts/MyPosts"
 import MyInfo from "./MyInfo/MyInfo"
+import MyPostsContainer from "./MyPosts/MyPostsContainer"
+
 const Content = (props) => {
+
     return (
         <div>
             <MyInfo />
-            <MyPosts text={props.data.textArea} postsData={props.data.postsData} dispatch={props.dispatch} />
+            <MyPostsContainer store={props.store} />
         </div>
     )
 }

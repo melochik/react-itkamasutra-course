@@ -12,7 +12,7 @@ const Morerender = () => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App data={store.getState()} dispatch={store.dispatch.bind(store)} />
+                <App store={store} />
             </BrowserRouter>
         </React.StrictMode>
     );

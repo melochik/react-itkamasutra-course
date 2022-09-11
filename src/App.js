@@ -2,7 +2,7 @@ import './App.css';
 import Profile from './components/Content/Content';
 import Header from './components/Header/Header';
 import Nav from './components/Nav/Nav';
-import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import { Route, Routes } from 'react-router-dom';
 import Music from './components/Music/Music';
 import News from './components/News/News';
@@ -15,8 +15,8 @@ const App = (props) => {
       <Nav />
       <div className='appContent'>
         <Routes>
-          <Route path="/" element={<Profile data={props.data.profile} dispatch={props.dispatch} />} />
-          <Route path="/dialogs/*" element={<Dialogs data={props.data.dialogs} dispatch={props.dispatch} />} />
+          <Route path="/" element={<Profile store={props.store} />} />
+          <Route path="/dialogs/*" element={<DialogsContainer store={props.store} />} />
           <Route path='/news' element={<News />} />
           <Route path='/music' element={<Music />} />
           <Route path='/settings' element={<Settings />} />
