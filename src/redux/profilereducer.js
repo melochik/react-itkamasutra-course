@@ -9,18 +9,23 @@ let grundState = {
 
 export const profileReducer = (state = grundState, action) => {
     switch (action.type) {
-        case "ADD-POST":
+        case "ADD-POST": {
             let newPost = {
                 id: 4,
                 likeCount: 10,
                 message: state.textArea,
                 img: "https://pro-cdn.pixelmator.com/community/avatar_empty@2x.png"
             }
-            state.postsData.push(newPost)
-            return state
-        case "UPDATE-TEXT-AREA":
-            state.textArea = action.text
-            return state
+            let copy = { ...state }
+            copy.postsData = [...state.postsData]
+            copy.postsData.push(newPost)
+            return copy
+        }
+        case "UPDATE-TEXT-AREA": {
+            let copy = { ...state }
+            copy.textArea = action.text
+            return copy
+        }
         default:
             return state
     }
