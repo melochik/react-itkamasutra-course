@@ -19,15 +19,20 @@ let grundState = {
 
 export const dialogReducer = (state = grundState, action) => {
     switch (action.type) {
-        case "ADD-DIALOG":
+        case "ADD-DIALOG": {
             let newMessage = {
                 content: state.currentMessage
             }
-            state.messagesData.push(newMessage)
-            return state
+            return {
+                ...state,
+                messagesData: [...state.messagesData, newMessage]
+            }
+        }
         case "UPDATE-DIALOG-AREA":
-            state.currentMessage = action.message
-            return state
+            return {
+                ...state,
+                currentMessage: action.message
+            }
         default:
             return state
     }

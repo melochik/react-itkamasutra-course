@@ -16,15 +16,16 @@ export const profileReducer = (state = grundState, action) => {
                 message: state.textArea,
                 img: "https://pro-cdn.pixelmator.com/community/avatar_empty@2x.png"
             }
-            let copy = { ...state }
-            copy.postsData = [...state.postsData]
-            copy.postsData.push(newPost)
-            return copy
+            return {
+                ...state,
+                postsData: [newPost, ...state.postsData]
+            }
         }
         case "UPDATE-TEXT-AREA": {
-            let copy = { ...state }
-            copy.textArea = action.text
-            return copy
+            return {
+                ...state,
+                textArea: action.text
+            }
         }
         default:
             return state
