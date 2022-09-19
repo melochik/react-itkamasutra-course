@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-
 import { addDialog, updateStateDialogMessage } from "../../redux/dialogreducer";
 import Dialogs from "./Dialogs";
 
