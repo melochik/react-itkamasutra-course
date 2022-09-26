@@ -1,9 +1,9 @@
 let grundState = {
     users: [
-        { name: "Ivan", followed: false, id: "1", describe: "hi, ich habe diese Site gemacht", img: "https://images.genius.com/fc08c1044e257dc664ca6ffbd0393476.1000x1000x1.jpg", location: { city: "München", country: "Deutschland" } },
-        { name: "Mary", followed: true, id: "2", describe: "holla, yo soy Mary", img: "https://images.genius.com/fc08c1044e257dc664ca6ffbd0393476.1000x1000x1.jpg", location: { city: "Rio", country: "Brazile" } },
-        { name: "Mark", followed: false, id: "3", describe: "hey, i like football", img: "https://images.genius.com/fc08c1044e257dc664ca6ffbd0393476.1000x1000x1.jpg", location: { city: "London", country: "UK" } },
-        { name: "Vendi", followed: true, id: "4", describe: "u cute, <3 ", img: "https://images.genius.com/fc08c1044e257dc664ca6ffbd0393476.1000x1000x1.jpg", location: { city: "Kiev", country: "Ukraine" } },
+        //     { name: "Ivan", followed: false, id: "1", describe: "hi, ich habe diese Site gemacht", img: "https://images.genius.com/fc08c1044e257dc664ca6ffbd0393476.1000x1000x1.jpg", location: { city: "München", country: "Deutschland" } },
+        //     { name: "Mary", followed: true, id: "2", describe: "holla, yo soy Mary", img: "https://images.genius.com/fc08c1044e257dc664ca6ffbd0393476.1000x1000x1.jpg", location: { city: "Rio", country: "Brazile" } },
+        //     { name: "Mark", followed: false, id: "3", describe: "hey, i like football", img: "https://images.genius.com/fc08c1044e257dc664ca6ffbd0393476.1000x1000x1.jpg", location: { city: "London", country: "UK" } },
+        //     { name: "Vendi", followed: true, id: "4", describe: "u cute, <3 ", img: "https://images.genius.com/fc08c1044e257dc664ca6ffbd0393476.1000x1000x1.jpg", location: { city: "Kiev", country: "Ukraine" } },
     ]
 }
 export let usersReducer = (state = grundState, action) => {
